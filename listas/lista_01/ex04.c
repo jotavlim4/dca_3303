@@ -7,6 +7,8 @@
 #include <limits.h>
 #include <float.h>
 
+
+
 int main(void){
     int x, y, q, r;
 
