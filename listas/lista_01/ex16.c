@@ -7,25 +7,31 @@
 #include <limits.h>
 #include <float.h>
 
-#define min(a, b) (a) < (b) ? a : b
-#define max(a, b) (a) > (b) ? a : b
+#define TAM 3
 
 int main(void){
-    int x, y, z;
+    int valores[TAM];
     int menor, maior;
 
     printf("digite três valores inteiros:\n");
-    scanf("%d %d %d", &x, &y, &z);
+    for(int i = 0; i < TAM; i++)
+        scanf("%d", &valores[i]);
 
-    menor = min(x, y);
-    menor = min(menor, z);
+    for(int i = 0; i < TAM; i++)
+        for(int j = i; j < TAM; j++){
+            if(valores[i] > valores[j]){
+                int temp;
+                temp = valores[i];
+                valores[i] = valores[j];
+                valores[j] = temp;
+            }
+        }
 
-    maior = maior(x, y);
-    maior = maior(maior);
-
-    
-
+    for(int i = 0; i < TAM; i++)
+        printf("%d ", valores[i]);
+    putchar('\n');
 
 
     return 0;
 }
+
